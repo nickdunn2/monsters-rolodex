@@ -1,4 +1,3 @@
-import logo from './logo.svg'
 import './App.css'
 import { Component } from 'react'
 
@@ -7,20 +6,31 @@ class App extends Component {
     super()
 
     this.state = {
-      location: 'KC'
+      monsters: [
+        {
+          id: 'asc1',
+          name: 'Frankenstein'
+        },
+        {
+          id: 'asc2',
+          name: 'Dracula'
+        },
+        {
+          id: 'asc3',
+          name: 'Zombie'
+        },
+      ]
     }
   }
 
   render() {
     return (
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Hello from { this.state.location }!
-            </p>
-            <button onClick={() => this.setState({ location: 'Amsterdam' })}>Change text</button>
-          </header>
+          {
+            this.state.monsters.map(monster => {
+              return <h1 key={ monster.id }>{ monster.name }</h1>
+            })
+          }
         </div>
     )
   }
