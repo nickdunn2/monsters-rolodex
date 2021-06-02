@@ -1,6 +1,8 @@
 import './App.css'
 import { Component } from 'react'
 
+const EXTERNAL_USERS_API = 'https://jsonplaceholder.typicode.com/users'
+
 class App extends Component {
   constructor() {
     super()
@@ -11,7 +13,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch(EXTERNAL_USERS_API)
       .then(res => res.json())
       .then(users => this.setState({ monsters: users }))
   }
